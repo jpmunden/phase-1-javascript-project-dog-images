@@ -1,0 +1,26 @@
+Public Domain Art Aggregator Project:
+
+Summary: 
+A page that allows you to filter through the Met Museum's API repository of art in the public domain with various filtering available.
+
+Basic functionality:
+Upon pageload, the Met's API will be called to get images and data around their public domain art. From there, append those images and data to the DOM using forEach() functionality.
+
+After data has been called, the page will allow users to filter through art based on 'period' (time period the art was created).
+
+Users will also be able to like posts with a click event.
+
+Finally, users will be able to filter based on artist name. 
+
+Data to be called: 
+All data to be called is in string format with the exception of 'isPublicDomain' which is a boolean value. 
+
+Challenges: 
+The biggest challenge I can foresee is populating filter values based on data pulled from the API for artist name and period. 
+
+Meeting the requirements: 
+1. The project will be built on CSS/HTML/JS and call the open API from the Met Museum for data
+2. The entire app will run on a single page with no redirects
+3. 2 of the event listeners will be related to filtering, with the 3rd being focused on liking the posts via click.
+4. forEach will be utilized to append each datapoint to the DOM
+5. Structure of the page will be DRY
