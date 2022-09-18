@@ -12,13 +12,19 @@ async function getRandomPicture() {
     const randomPicElement = document.createElement('img')
     const randomPicWrapper = document.createElement('div')
     const randomSpan = document.createElement('span')
-    randomSpan.innerText = 'X'
-    randomSpan.classList.add('deleteButton')
     randomPicElement.src = randomPicture.message
     randomPicElement.classList.add('dogImages')
     randomPicWrapper.append(randomPicElement)
     randomPicWrapper.append(randomSpan)
     return randomPicWrapper
+}
+
+async function getDogBreed() {
+    const urlSource = await callAPI();
+    let breedPathname = urlSource.message.substr(30)
+    let breedNameSplit = breedPathname.split('/')
+    let breedLabelString = breedNameSplit[0]
+    console.log(breedLabelString)
 }
 
 document.addEventListener('DOMContentLoaded', async (event) => {
@@ -27,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     const savedImages = document.getElementById('savedImages');
     const pictureArea = document.getElementById('fetchedPicture');
     const randomPicElement = await getRandomPicture()
+    const dogBreedLabel = await getDogBreed()
     pictureArea.append(randomPicElement);
     
     likeButton.addEventListener('click', (event) => {
@@ -51,8 +58,6 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         console.log('dislike button pressed')
     };
 })
-
-//should I use string interpolation for the image URL instead of the const randomPicture?
 
 
 // document.addEventListener('DOMContentLoaded', async (event) => {
